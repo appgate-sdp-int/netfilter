@@ -110,6 +110,11 @@ func (c *Conn) Receive() ([]netlink.Message, error) {
 	return c.conn.Receive()
 }
 
+// Receive executes a blocking read on the underlying Netlink socket and returns a Message.
+func (c *Conn) ReceiveUsing(b []byte) ([]netlink.Message, error) {
+	return c.conn.ReceiveUsing(b)
+}
+
 // IsMulticast returns the Conn's Multicast flag. It is set by calling Listen().
 func (c *Conn) IsMulticast() bool {
 
